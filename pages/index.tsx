@@ -1,31 +1,43 @@
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import Image from 'next/image'
-import Link from 'next/link'
-import {GiHamburgerMenu} from "react-icons/gi"
+import type { NextPage } from "next";
+import Head from "next/head";
+import Image from "next/image";
+import HomeCard from "../components/HomeCard";
+import Navbar from "../components/Navbar";
+import axios from "axios";
 const Home: NextPage = () => {
   return (
-    <div className='bg-black h-screen'>
+    <div className="h-full bg-black ">
       <Head>
         <title>RedWalls</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <nav className='bg-slate-800 py-3 px-4 relative text-slate-200 flex justify-between items-center'>
-        <div>LOGO</div>
-        <ul className='flex flex-col items-center w-full absolute bottom-0 left-0 translate-y-full  transition-transform'>
-          <li><Link href="/">Home</Link></li>
-          <li><Link href="/">Wallpaper</Link></li>
-          <li><Link href="/">WideScreen</Link></li>
-          <li><Link href="/">Phone</Link></li>
-          <li><Link href="/">Anime</Link></li>
-        </ul>
-        <button><GiHamburgerMenu/></button>
-      </nav>
-      <main className='bg-slate-900 text-white'>
-
+      <Navbar />
+      <main className="bg-black min-h-full lg:px-2 h-full lg:h-[calc(100vh-48px)] text-white grid grid-cols-1 lg:grid-cols-2 lg:gap-2">
+        <HomeCard
+          text="Wallpapers"
+          link="https://i.redd.it/kfugnxvjqbm91.jpg"
+          route="/"
+        />
+        <HomeCard
+          text="Widescreen"
+          link="https://i.redd.it/lhl57l81hol91.jpg"
+          route="/"
+        />
+        <HomeCard
+          text="Phone"
+          link="https://i.redd.it/teephpkwi0m91.jpg"
+          route="/"
+        />
+        <HomeCard
+          text="Anime"
+          // link="https://i.redd.it/hq2mq0398km91.png"
+          // link="https://i.redd.it/mpt7lf0m0am91.png"
+          link="https://i.redd.it/qqfigwm4aik91.png"
+          route="/"
+        />
       </main>
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
