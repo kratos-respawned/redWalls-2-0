@@ -2,7 +2,6 @@
 module.exports = {
   reactStrictMode: false,
   images: {
-    loader: "custom",
     domains: [
       "i.redd.it",
       "preview.redd.it",
