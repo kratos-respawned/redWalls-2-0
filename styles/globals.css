@@ -28,3 +28,6 @@ body{
     border-radius: 20px;
     border: 8px solid #b80000;
   }
+  *{
+    -webkit-tap-highlight-color: transparent;
+  }
