@@ -15,7 +15,6 @@ export default function Page(props) {
   useEffect(() => {
     setLoader(true);
     fetchData();
-    console.log("reload");
   }, [url]);
   let next = () => {
     setUrl(
@@ -47,7 +46,6 @@ export default function Page(props) {
     let i = 0;
     main.map((item) => {
       try {
-        console.log(item);
         if (!item.data.is_video && !item.data.over_18) {
           let temp = {
             title: item.data.title,
