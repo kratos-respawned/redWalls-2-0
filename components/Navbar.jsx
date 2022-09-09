@@ -2,10 +2,19 @@ import Link from "next/link";
 import { useState } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { BiUpArrowAlt } from "react-icons/bi";
+import { useRouter } from "next/router";
+import HashLoader from "react-spinners/HashLoader";
 export default function Navbar() {
+  const [loader, setLoader] = useState(false);
+  const route = useRouter();
   const [menu, setMenu] = useState(false);
   return (
-    <nav className="bg-[#121212] py-3  px-4 relative text-slate-200 flex justify-between items-center">
+    <nav className="bg-[#121212] max-w-screen-2xl mx-auto py-3  px-4 relative text-slate-200 flex justify-between items-center">
+      {loader ? (
+        <div className="w-screen h-screen pointer-events-none grid place-items-center z-50 bg-[#0000006b] fixed top-0">
+          <HashLoader color="#EF4444" size={96} />
+        </div>
+      ) : null}
       <div className="md:flex-1">
         <Link href="/">
           <img
@@ -22,22 +31,82 @@ export default function Navbar() {
             : "  pointer-events-none opacity-0 z-0 "
         }  transition-all transform-gpu`}
       >
-        <li className="pb-2 hover:text-red-500  pt-3 md:p-0 md:px-3">
-          <Link href="/">Home</Link>
+        <li
+          className={`pb-2 hover:text-red-500  pt-3 md:p-0 md:px-3 ${
+            route.pathname === "/" ? "text-red-500" : " text-white "
+          } `}
+        >
+          <Link href="/">
+            <button
+              onClick={() => {
+                route.pathname !== "/" ? setLoader(true) : null;
+              }}
+            >
+              Home
+            </button>
+          </Link>
         </li>
-        <li className="pb-2 hover:text-red-500 md:p-0 md:px-3">
-          <Link href="/walls">Wallpaper</Link>
+        <li
+          className={`pb-2 hover:text-red-500 md:p-0 md:px-3 ${
+            route.pathname === "/Walls" ? "text-red-500" : " text-white "
+          } `}
+        >
+          <Link href="/Walls">
+            <button
+              onClick={() => {
+                route.pathname !== "/Walls" ? setLoader(true) : null;
+              }}
+            >
+              Wallpaper
+            </button>
+          </Link>
         </li>
-        <li className="pb-2 hover:text-red-500 md:p-0 md:px-3">
-          <Link href="/widescreen">WideScreen</Link>
+        <li
+          className={`pb-2 hover:text-red-500 md:p-0 md:px-3 ${
+            route.pathname === "/WideScreen" ? "text-red-500" : " text-white "
+          } `}
+        >
+          <Link href="/WideScreen">
+            <button
+              onClick={() => {
+                route.pathname !== "/WideScreen" ? setLoader(true) : null;
+              }}
+            >
+              WideScreen
+            </button>
+          </Link>
         </li>
-        <li className="pb-2 hover:text-red-500 md:p-0 md:px-3">
-          <Link href="/phone">Phone</Link>
+        <li
+          className={`pb-2 hover:text-red-500 md:p-0 md:px-3 ${
+            route.pathname === "/Phone" ? "text-red-500" : " text-white "
+          } `}
+        >
+          <Link href="/Phone">
+            <button
+              onClick={() => {
+                route.pathname !== "/Phone" ? setLoader(true) : null;
+              }}
+            >
+              Phone
+            </button>
+          </Link>
         </li>
-        <li className="pb-2 hover:text-red-500 md:p-0 md:px-3">
-          <Link href="/anime">Anime</Link>
+        <li
+          className={`pb-2 hover:text-red-500 md:p-0 md:px-3 ${
+            route.pathname === "/Anime" ? "text-red-500" : " text-white "
+          } `}
+        >
+          <Link href="/anime">
+            <button
+              onClick={() => {
+                route.pathname !== "/Anime" ? setLoader(true) : null;
+              }}
+            >
+              Anime
+            </button>
+          </Link>
         </li>
-        <li className=" pb-2 md:hidden">
+        <li className={` pb-2 md:hidden`}>
           <button
             onClick={() => {
               setMenu(false);
