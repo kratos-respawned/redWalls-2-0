@@ -96,7 +96,7 @@ export default function Navbar() {
             route.pathname === "/Anime" ? "text-red-500" : " text-white "
           } `}
         >
-          <Link href="/anime">
+          <Link href="/Anime">
             <button
               onClick={() => {
                 route.pathname !== "/Anime" ? setLoader(true) : null;
