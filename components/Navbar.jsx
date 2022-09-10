@@ -20,7 +20,7 @@ export default function Navbar() {
           <img
             src="https://see.fontimg.com/api/renderfont4/VMGx/eyJyIjoiZnMiLCJoIjo2OCwidyI6MTI1MCwiZnMiOjU0LCJmZ2MiOiIjMDAwMDAwIiwiYmdjIjoiI0ZGRkZGRiIsInQiOjF9/UmVkd2FsbHM/gbshinto-regular.png"
             alt="Anime fonts"
-            className="invert w-32 bg-white "
+            className="invert w-32  "
           />
         </Link>
       </div>
@@ -29,7 +29,7 @@ export default function Navbar() {
           menu
             ? " translate-y-full opacity-100 z-50 border-t-[0.1px] border-t-[#8a8a8a0e]"
             : "  pointer-events-none opacity-0 z-0 "
-        }  transition-all transform-gpu`}
+        }  transition-all ease-in transform-gpu`}
       >
         <li
           className={`pb-2 hover:text-red-500  pt-3 md:p-0 md:px-3 ${
