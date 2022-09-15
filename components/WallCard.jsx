@@ -10,7 +10,7 @@ export default function WallCard(props) {
             alt={props.alt}
             src={props.img}
             layout="fill"
-            objectFit={`${props.wide ? " contain " : " cover "}`}
+            objectFit="contain"
             className=" md:group-hover:scale-110 transition-transform transform-gpu duration-500 ease-in-out"
           />
           <div className="absolute flex pr-3 rounded-t-xl pt-2 pb-2 items-center bottom-0 w-full text-[#dadada] z-30  bg-gradient-to-b from-[#1e1e1e30] to-[#000000a4] h-fit">
