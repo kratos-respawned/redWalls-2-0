@@ -28,8 +28,8 @@ const Home: NextPage = () => {
         />
         <HomeCard
           text="Anime"
-          //link="https://i.redd.it/qqfigwm4aik91.png"
-          link="https://i.redd.it/tsq326qqemo91.jpg"
+          link="https://i.redd.it/qqfigwm4aik91.png"
+          //link="https://i.redd.it/tsq326qqemo91.jpg"
           route="/Anime"
         />
       </main>
