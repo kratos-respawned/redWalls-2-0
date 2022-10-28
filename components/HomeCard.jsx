@@ -22,8 +22,9 @@ export default function HomeCard({ link, text, route }) {
             <div className="w-full min-h-[10rem] lg:h-full relative">
               <Image
                 alt={text}
-                priority
                 src={link}
+                placeholder="blur"
+                blurDataURL={link}
                 layout="fill"
                 objectFit="cover"
                 className="group-hover:scale-105  transition-transform transform-gpu duration-500 ease-out"
