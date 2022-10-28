@@ -9,6 +9,8 @@ export default function WallCard(props) {
           <Image
             alt={props.alt}
             src={props.img}
+            placeholder="blur"
+            blurDataURL={props.img}
             layout="fill"
             objectFit="contain"
             className=" md:group-hover:scale-110 transition-transform transform-gpu duration-500 ease-in-out"
