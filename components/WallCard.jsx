@@ -4,7 +4,7 @@ import { IoCloudDownloadOutline } from "react-icons/io5";
 export default function WallCard(props) {
   return (
     <>
-      <a target="_blank" href={props.dllink}>
+      <a target="_blank" href={props.dllink} download>
         <div className="flex group font-mono relative w-full h-[300px] overflow-hidden">
           <Image
             alt={props.alt}
