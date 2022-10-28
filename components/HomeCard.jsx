@@ -26,6 +26,7 @@ export default function HomeCard({ link, text, route }) {
                 placeholder="blur"
                 blurDataURL={link}
                 layout="fill"
+                priority
                 objectFit="cover"
                 className="group-hover:scale-105  transition-transform transform-gpu duration-500 ease-out"
               />

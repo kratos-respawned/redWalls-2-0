@@ -14,11 +14,11 @@ const Home: NextPage = () => {
         <HomeCard text="Wallpapers" link="/wallpapers.webp" route="/Walls" />
         <HomeCard
           text="Widescreen"
-          link="/widescreen.png"
+          link="/widescreen.webp"
           route="/WideScreen"
         />
-        <HomeCard text="Phone" link="/phone.png" route="/Phone" />
-        <HomeCard text="Anime" link="/anime.png" route="/Anime" />
+        <HomeCard text="Phone" link="/phone.webp" route="/Phone" />
+        <HomeCard text="Anime" link="/anime.webp" route="/Anime" />
       </main>
     </div>
   );
