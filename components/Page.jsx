@@ -94,7 +94,7 @@ export default function Page(props) {
           onClick={() => {
             window.scrollTo(0, 0);
           }}
-          className="text-white hover:text-red-500"
+          className="font-mono text-white hover:text-red-500"
         >
           Go to top
         </button>

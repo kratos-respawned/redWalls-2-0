@@ -11,27 +11,10 @@ const Home: NextPage = () => {
       </Head>
       <Navbar />
       <main className="bg-black max-w-screen-2xl mx-auto min-h-full lg:px-2 h-full lg:h-[calc(100vh-48px)] text-white grid grid-cols-1 lg:grid-cols-2 lg:gap-2">
-        <HomeCard
-          text="Wallpapers"
-          link="https://i.redd.it/kfugnxvjqbm91.jpg"
-          route="/Walls"
-        />
-        <HomeCard
-          text="Widescreen"
-          link="https://i.redd.it/lhl57l81hol91.jpg"
-          route="/WideScreen"
-        />
-        <HomeCard
-          text="Phone"
-          link="https://i.redd.it/teephpkwi0m91.jpg"
-          route="/Phone"
-        />
-        <HomeCard
-          text="Anime"
-          link="https://i.redd.it/qqfigwm4aik91.png"
-          //link="https://i.redd.it/tsq326qqemo91.jpg"
-          route="/Anime"
-        />
+        <HomeCard text="Wallpapers" link="/wallpapers.webp" route="/Walls" />
+        <HomeCard text="Widescreen" link="/phone2.png" route="/WideScreen" />
+        <HomeCard text="Phone" link="/phone.png" route="/Phone" />
+        <HomeCard text="Anime" link="/anime2.png" route="/Anime" />
       </main>
     </div>
   );
