@@ -19,7 +19,7 @@ export default function HomeCard({ link, text, route }) {
           className="mb-1 lg:m-0 "
         >
           <div className="overflow-hidden w-full h-full group cursor-pointer ">
-            <div className="w-full min-h-[10rem] lg:h-full relative">
+            <div className="w-full min-h-[10rem] h-full lg:h-full relative">
               <Image
                 alt={text}
                 src={link}
