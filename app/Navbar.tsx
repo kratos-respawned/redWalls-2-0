@@ -4,19 +4,20 @@ import { usePathname } from "next/navigation";
 
 function Navbar() {
   return (
-    <header className="max-w-screen-xl mx-auto">
-      <nav className="flex justify-between py-5 items-center">
+    <header className="max-w-screen-xl mx-auto overflow-x-clip relative">
+      <nav className="flex justify-between py-3 items-center">
         <Link
           href="/"
-          className="shinto hover:text-rwRed text-2xl tracking-wider"
+          className="shinto hover:text-rwRed text-2xl tracking-wider logo"
         >
           Redwalls
         </Link>
-        <ul className="flex justify-between space-x-4 text-lg ">
+        <ul className="flex  flex-col md:flex-row absolute md:static top-0 right-0 justify-between md:space-x-4 text-lg z-10">
           <Navlink text="Home" link="/" />
           <Navlink text="Anime" link="/anime" />
           <Navlink text="Phone" link="/phone" />
           <Navlink text="Wallpapers" link="/walls" />
+          <Navlink text="Widescreen" link="/widescreen" />
         </ul>
       </nav>
     </header>

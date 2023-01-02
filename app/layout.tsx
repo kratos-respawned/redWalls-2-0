@@ -8,9 +8,11 @@ export default function RootLayout({
   return (
     <html>
       <head />
-      <body className="bg-rwBlack text-white px-5 lg:px-4">
+      <body className="bg-rwBlack text-white  ">
         <Navbar />
-        <main className="max-w-screen-xl mx-auto">{children}</main>
+        <main className="max-w-screen-xl mx-auto h-[calc(100vh-56px)]">
+          {children}
+        </main>
       </body>
     </html>
   );

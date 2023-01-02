@@ -12,6 +12,23 @@
         @apply relative after:absolute after:bottom-0 after:translate-y-1 after:left-1/2 after:-translate-x-1/2 after:h-[2px] after:bg-rwRed after:w-0 hover:after:w-full after:duration-300 transition-colors duration-200 
     }
     .shinto{
-        font-family: 'GBShinto', sans-serif;
+        font-family: 'GBShinto', sans-serif ;
+        
     }
+
+}
+
+.logo{
+background: rgb(239, 68, 68);
+    background: linear-gradient(90deg, rgba(239, 68, 68, 1) 50%, rgba(255, 255, 255, 1) 50%);
+        background-size: 200%;
+        color: transparent !important;
+        -webkit-background-clip: text;
+        background-clip: text;
+        background-position: 100%;
+        transition-duration: 300ms;
+}
+.logo:hover{
+    background-position: 0%;
+    /* color: #fff !important; */
 }
