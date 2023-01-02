@@ -1,9 +1,13 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  reactStrictMode: true,
-  experimental: {
-    appDir: true,
+module.exports = {
+  reactStrictMode: false,
+  images: {
+     minimumCacheTTL: 86400,
+    domains: [
+      "i.redd.it",
+      "preview.redd.it",
+      "images.pexels.com",
+      "external-preview.redd.it",
+    ],
   },
 };
-
-module.exports = nextConfig;
