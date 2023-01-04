@@ -52,8 +52,10 @@ export default function Page(props) {
     arr
       .filter((item) => {
         return (
+          // apply over18 filter
           typeof item.data.preview !== "undefined" &&
-          item.data.is_video !== true
+          item.data.is_video !== true &&
+          item.data.over_18 !== true
         );
       })
       .map((item) => {
