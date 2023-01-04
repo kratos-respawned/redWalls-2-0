@@ -9,8 +9,7 @@ export default function WallCard(props) {
           <Image
             alt={props.alt}
             src={props.img}
-            placeholder="blur"
-            blurDataURL={props.img}
+            placeholder="empty"
             layout="fill"
             objectFit="contain"
             unoptimized

@@ -13,8 +13,14 @@ export default function Page(props) {
   );
   const [response, setResponse] = useState(null);
   useEffect(() => {
-    setLoader(true);
-    fetchData();
+    let isMounted = true;
+    if (isMounted) {
+      setLoader(true);
+      fetchData();
+    }
+    return () => {
+      isMounted = false;
+    };
   }, [url]);
   let next = () => {
     setUrl(
@@ -30,36 +36,37 @@ export default function Page(props) {
     );
     setCounter(counter - 1);
   };
-  let fetchData = () => {
-    setLoader(true);
-    fetch(url).then((result) => {
-      result.json().then((resp) => {
-        handleData(resp);
-        setResponse(resp);
-        setLoader(false);
-      });
-    });
-  };
-  let handleData = (resp) => {
-    let main = resp.data.children;
-    let data = [];
-    let i = 0;
-    main.map((item) => {
-      try {
-        if (!item.data.is_video && !item.data.over_18) {
-          let temp = {
-            title: item.data.title,
-            author: item.data.author,
-            subreddit: item.data.subreddit,
-            url: item.data.url,
-            img: item.data.preview.images[0].resolutions[3].url,
-          };
 
-          data[i] = temp;
-          i = i + 1;
-        }
-      } catch (err) {}
-    });
+  async function fetchData() {
+    setLoader(true);
+    let rawData = await fetch(url);
+    let rawJSON = await rawData.json();
+
+    handleData(rawJSON.data.children);
+    setResponse(rawJSON);
+    setLoader(false);
+  }
+
+  let handleData = (arr) => {
+    let data = [];
+    arr
+      .filter((item) => {
+        return (
+          typeof item.data.preview !== "undefined" &&
+          item.data.is_video !== true
+        );
+      })
+      .map((item) => {
+        if (item.data.preview.images[0].resolutions[3] === undefined) return;
+        console.log(item.data.preview.images[0].resolutions[3].url);
+        data.push({
+          title: item.data.title,
+          author: item.data.author,
+          subreddit: item.data.subreddit,
+          img: item.data.preview.images[0].resolutions[3].url,
+          url: item.data.url,
+        });
+      });
     setData(data);
   };
   return (
