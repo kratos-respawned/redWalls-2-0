@@ -37,3 +37,15 @@ body{
   .enter{
     transition-timing-function: cubic-bezier(0.3,0.0,0.8,0.15);
   }
+  .infinite-scroll-component__outerdiv{
+    z-index: -50;
+  }
+  @layer utilities{
+.hide {
+  @apply opacity-0 pointer-events-none;
+}
+.show{
+  @apply opacity-100 pointer-events-auto;
+}
+  }
+  

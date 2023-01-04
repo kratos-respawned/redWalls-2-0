@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { HiOutlineUserCircle } from "react-icons/hi";
-import { IoCloudDownloadOutline } from "react-icons/io5";
 export default function WallCard(props) {
   return (
     <>
@@ -9,7 +8,8 @@ export default function WallCard(props) {
           <Image
             alt={props.alt}
             src={props.img}
-            placeholder="empty"
+            placeholder="blur"
+            blurDataURL={props.img}
             layout="fill"
             objectFit="contain"
             className=" md:group-hover:scale-110 transition-transform transform-gpu duration-500 ease-in-out"
@@ -23,16 +23,6 @@ export default function WallCard(props) {
                 </span>
               </div>
               <div className="text-sm pt-1">{props.subreddit}</div>
-            </div>
-            <div className="text-[#e5e5e5] text-lg p-1 group-hover:text-xl transition-all ease-in-out hover:text-red-500">
-              <a
-                target="_blank"
-                href={props.dllink}
-                download
-                rel="noopener noreferrer"
-              >
-                <IoCloudDownloadOutline />
-              </a>
             </div>
           </div>
         </div>
