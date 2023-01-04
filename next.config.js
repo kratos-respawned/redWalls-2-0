@@ -1,8 +1,9 @@
 /** @type {import('next').NextConfig} */
 module.exports = {
-  reactStrictMode: false,
+  reactStrictMode: true,
   swcMinify: true,
   images: {
+    minimumCacheTTL: 60 * 60 * 24 * 7,
     domains: [
       "i.redd.it",
       "preview.redd.it",
