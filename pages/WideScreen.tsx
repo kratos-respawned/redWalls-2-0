@@ -9,7 +9,7 @@ const WideScreen = () => {
       <Head>
         <title>Redwalls-WideScreen Wallpaper</title>
       </Head>
-      <Page subredd={subredd} wide={true} />
+      <Page subredd={subredd} />
     </>
   );
 };

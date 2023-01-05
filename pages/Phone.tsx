@@ -1,17 +1,16 @@
 import Head from "next/head";
 import Page from "../components/Page";
 
-const Anime = () => {
-  const subredd = `Animewallpaper`;
+const Phone = () => {
+  const subredd = `phonewallpaper+phonewallpapers`;
 
   return (
     <>
       <Head>
         <title>Redwalls-Anime Wallpaper</title>
       </Head>
-      <Page subredd={subredd} wide={true} />
+      <Page subredd={subredd} />
     </>
   );
 };
-export default Anime;
-// phonewallpaper+phonewallpapers
+export default Phone;

@@ -85,7 +85,7 @@ export default function Navbar() {
             setMenu((menu) => !menu);
           }}
         >
-          <GiHamburgerMenu />
+          <GiHamburgerMenu className="text-2xl" />
         </button>
       </nav>
     </>

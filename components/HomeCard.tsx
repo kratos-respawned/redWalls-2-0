@@ -1,9 +1,11 @@
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
-import HashLoader from "react-spinners/HashLoader";
-export default function HomeCard({ link, text, route }) {
-  const [loader, setLoader] = useState(false);
+type WallData = {
+  link: string;
+  text: string;
+  route: string;
+};
+export default function HomeCard({ link, text, route }: WallData) {
   return (
     <>
       <Link href={route}>
