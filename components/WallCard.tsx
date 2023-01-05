@@ -1,12 +1,13 @@
 import Image from "next/image";
 import { HiOutlineUserCircle } from "react-icons/hi";
-export default function WallCard(props) {
+import { CardData } from "./Page";
+export default function WallCard(props: CardData) {
   return (
     <>
-      <a target="_blank" href={props.dllink} download>
+      <a target="_blank" href={props.url} download>
         <div className="flex group font-mono relative w-full h-[300px] overflow-hidden">
           <Image
-            alt={props.alt}
+            alt={props.title}
             src={props.img}
             placeholder="blur"
             blurDataURL={props.img}
@@ -19,7 +20,7 @@ export default function WallCard(props) {
               <div className="flex items-center text-xl">
                 <HiOutlineUserCircle />
                 <span className="text-sm pl-2 pb-px font-mono">
-                  {props.name}
+                  {props.author}
                 </span>
               </div>
               <div className="text-sm pt-1">{props.subreddit}</div>

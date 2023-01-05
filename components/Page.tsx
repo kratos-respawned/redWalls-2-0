@@ -6,8 +6,19 @@ import WallCard from "./WallCard";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { BiUpArrowAlt } from "react-icons/bi";
 //////////////////////////////////////////////////////////////////////////////////////
-export default function Page(props) {
-  const [Maindata, setData] = useState([]);
+type Props = {
+  subredd: string;
+};
+export type CardData = {
+  title: string;
+  author: string;
+  subreddit: string;
+  img: string;
+  url: string;
+};
+//////////////////////////////////////////////////////////////////////////////////////
+export default function Page(props: Props) {
+  const [Maindata, setData] = useState<CardData[]>([]);
   const [loader, setLoader] = useState(true);
   const after = useRef("");
   const [url, setUrl] = useState(
@@ -15,16 +26,23 @@ export default function Page(props) {
   );
 
   useEffect(() => {
-    window.addEventListener("scroll", () => {
+    let mounted = true;
+
+    let setVisibility = () => {
       if (window.scrollY > 100) {
-        document.querySelector("button.enter").classList.remove("hide");
-        document.querySelector("button.enter").classList.add("show");
+        document.querySelector("button.enter")?.classList.add("show");
       } else {
-        document.querySelector("button.enter").classList.add("hide");
-        document.querySelector("button.enter").classList.remove("show");
+        document.querySelector("button.enter")?.classList.remove("show");
       }
-    });
-  });
+    };
+    if (mounted) {
+      window.addEventListener("scroll", setVisibility);
+    }
+    return () => {
+      mounted = false;
+      window.removeEventListener("scroll", setVisibility);
+    };
+  }, [globalThis?.scrollY]);
 
   //////////////////////////////////////////////////////////////////////////////////////
   useEffect(() => {
@@ -52,17 +70,17 @@ export default function Page(props) {
       `https://www.reddit.com/r/${props.subredd}/hot.json?count=1000&after=${after.current}&raw_json=1`
     );
   };
-  let handleData = (arr) => {
-    let data = [];
+  let handleData = (arr: any) => {
+    let data: CardData[] = [];
     arr
-      .filter((item) => {
+      .filter((item: any) => {
         return (
           typeof item.data.preview !== "undefined" &&
           item.data.is_video !== true &&
           item.data.over_18 !== true
         );
       })
-      .map((item) => {
+      .map((item: any) => {
         if (item.data.preview.images[0].resolutions[3] === undefined) return;
         data.push({
           title: item.data.title,
@@ -110,13 +128,12 @@ export default function Page(props) {
           {Maindata.map((card, key) => {
             return (
               <WallCard
-                wide={props.wide}
                 key={key}
                 img={card.img}
-                name={card.author}
+                author={card.author}
                 subreddit={card.subreddit}
-                dllink={card.url}
-                alt={card.title}
+                url={card.url}
+                title={card.title}
               />
             );
           })}
@@ -125,7 +142,7 @@ export default function Page(props) {
               window.scrollTo({ top: 0, behavior: "smooth" });
             }}
             title="Go to top"
-            className="z-[999] fixed bottom-4 right-3 p-2 rounded-xl shadow-md shadow-black enter  duration-150 hover:scale-[1.05] bg-white"
+            className="z-[999] opacity-0 pointer-events-none fixed bottom-4 right-3 p-2 rounded-xl shadow-md shadow-black enter  duration-150 hover:scale-[1.05] bg-white"
           >
             <BiUpArrowAlt className="text-red-500 text-3xl" />
           </button>

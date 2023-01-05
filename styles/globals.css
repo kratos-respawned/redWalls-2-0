@@ -41,11 +41,10 @@ body{
     z-index: -50;
   }
   @layer utilities{
-.hide {
-  @apply opacity-0 pointer-events-none;
-}
+
 .show{
-  @apply opacity-100 pointer-events-auto;
+  opacity: 1 !important;
+  pointer-events: all;
 }
   }
   
