@@ -11,7 +11,8 @@
     "react-dom": "18.1.0",
     "react-icons": "^4.4.0",
     "react-infinite-scroll-component": "^6.1.0",
-    "react-spinners": "^0.13.4"
+    "react-spinners": "^0.13.4",
+    "sharp": "^0.31.3"
   },
   "devDependencies": {
     "@types/node": "17.0.35",

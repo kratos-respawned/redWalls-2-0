@@ -65,7 +65,7 @@ export default function Navbar() {
           <NavLink
             name="Widescreen"
             path={path}
-            url="/Widescreen"
+            url="/WideScreen"
             setLoader={setLoader}
             key={5}
           />
