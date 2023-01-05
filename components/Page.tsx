@@ -84,7 +84,6 @@ export default function Page(props: Props) {
       })
       .map((item: any) => {
         if (item.data.preview.images[0].resolutions[3] === undefined) return;
-        console.log(item.data.preview.images[0].resolutions[3]);
         data.push({
           title: item.data.title,
           author: item.data.author,
