@@ -10,9 +10,9 @@ module.exports = {
       "images.pexels.com",
       "external-preview.redd.it",
     ],
-    unoptimized: true,
-    path: "/redWalls-2_0",
+    // unoptimized: true,
+    // path: "/redWalls-2_0",
   },
-  basePath: "/redWalls-2_0",
-  assetPrefix: "/redWalls-2_0",
+  // basePath: "/redWalls-2_0",
+  // assetPrefix: "/redWalls-2_0",
 };

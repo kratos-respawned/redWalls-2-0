@@ -90,12 +90,12 @@ export default function Page(props: Props) {
           subreddit: item.data.subreddit,
           width: item.data.preview.images[0].resolutions[2].width,
           height: item.data.preview.images[0].resolutions[2].height,
-          img: item.data.preview.images[0].resolutions[2].url,
-          // img:
-          //   item.data.preview.images[0].resolutions[2].width >
-          //   item.data.preview.images[0].resolutions[2].height
-          //     ? item.data.preview.images[0].resolutions[3].url
-          //     : item.data.preview.images[0].resolutions[2].url,
+          // img: item.data.preview.images[0].resolutions[2].url,
+          img:
+            item.data.preview.images[0].resolutions[2].width >
+            item.data.preview.images[0].resolutions[2].height
+              ? item.data.preview.images[0].resolutions[3].url
+              : item.data.preview.images[0].resolutions[2].url,
           url: item.data.url,
         });
       });
