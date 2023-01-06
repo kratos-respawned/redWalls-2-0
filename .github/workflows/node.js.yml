@@ -5,31 +5,31 @@ name: Node.js CI
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        node-version: [ 18.x]
+        node-version: [18.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
-    - uses: actions/checkout@v3
-    - name: Yarn CLI
-      uses: CultureHQ/actions-yarn@v1.0.1
-      
-    - run: yarn install
-    - run: yarn build
-    - run: yarn export
-    - name: Deploy 🚀
-      uses: JamesIves/github-pages-deploy-action@v4
-      with:
+      - uses: actions/checkout@v3
+      - name: Yarn CLI
+        uses: CultureHQ/actions-yarn@v1.0.1
+
+      - run: yarn install
+      - run: yarn build
+      - run: yarn export
+      - run: touch ./out/.nojekyll
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
           branch: gh-pages
           folder: out # The folder the action should deploy.
-    
+

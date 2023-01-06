@@ -13,6 +13,6 @@ module.exports = {
     loader: "akamai",
     path: " ",
   },
-  basePath: "/redWalls-2.0",
-  assetPrefix: "/redWalls-2.0",
+  basePath: "/redWalls-2_0",
+  assetPrefix: "/redWalls-2_0",
 };
