@@ -10,5 +10,9 @@ module.exports = {
       "images.pexels.com",
       "external-preview.redd.it",
     ],
+    loader: "akamai",
+    path: " ",
   },
+  basePath: "/redWalls-2.0",
+  assetPrefix: "/redWalls-2.0",
 };
