@@ -1,24 +1,69 @@
 import create from "zustand"
 import { CardData } from "../components/Page"
 
-const RedditStore = (set: any) => ({
-    Anime: [] as CardData[],
+const AnimeStore = (set: any) => ({
+    Data: [] as CardData[],
     After: "" as string,
-    FirstLoad: true as boolean,
-    addAnime: (anime: CardData[]) => set(
+    addData: (anime: CardData[]) => set(
         (state: any) => ({
 
-            Anime: [...state.Anime, ...anime]
+            Data: [...state.Data, ...anime]
         })
     ),
     setAfter: (after: string) => set(
         (state: any) => ({
             After: after
         })),
-    setFirstLoad: (firstLoad: boolean) => set(
-        (state: any) => ({
-            FirstLoad: firstLoad
-        }))
 })
-const useAnimeStore = create(RedditStore);
-export default useAnimeStore;
+const PhoneStore = (set: any) => ({
+    Data: [] as CardData[],
+    After: "" as string,
+
+    addData: (data: CardData[]) => set(
+        (state: any) => ({
+
+            Data: [...state.Data, ...data]
+        })
+    ),
+    setAfter: (after: string) => set(
+        (state: any) => ({
+            After: after
+        })),
+
+})
+const WideStore = (set: any) => ({
+    Data: [] as CardData[],
+    After: "" as string,
+
+    addData: (data: CardData[]) => set(
+        (state: any) => ({
+
+            Data: [...state.Data, ...data]
+        })
+    ),
+    setAfter: (after: string) => set(
+        (state: any) => ({
+            After: after
+        })),
+
+})
+const WallStore = (set: any) => ({
+    Data: [] as CardData[],
+    After: "" as string,
+
+    addData: (data: CardData[]) => set(
+        (state: any) => ({
+
+            Data: [...state.Data, ...data]
+        })
+    ),
+    setAfter: (after: string) => set(
+        (state: any) => ({
+            After: after
+        })),
+
+})
+export const useAnimeStore = create(AnimeStore);
+export const usePhoneStore = create(PhoneStore);
+export const useWideStore = create(WideStore);
+export const useWallStore = create(WallStore);

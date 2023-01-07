@@ -5,10 +5,14 @@ import Navbar from "./Navbar";
 import WallCard from "./WallCard";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { BiUpArrowAlt } from "react-icons/bi";
-import useAmineStore from "../store/store";
+
 //////////////////////////////////////////////////////////////////////////////////////
 type Props = {
   subredd: string;
+  MainData: CardData[];
+  setData: (data: CardData[]) => void;
+  after: string;
+  setAfter: (after: string) => void;
 };
 export type CardData = {
   title: string;
@@ -21,20 +25,25 @@ export type CardData = {
   blurUrl?: string;
 };
 //////////////////////////////////////////////////////////////////////////////////////
-export default function Page(props: Props) {
-  // const [Maindata, setData] = useState<CardData[]>([]);
-  const FirstLoad = useAmineStore((state) => state.FirstLoad);
-  const setFirstLoad = useAmineStore((state) => state.setFirstLoad);
-  const Maindata = useAmineStore((state) => state.Anime);
-  const setData = useAmineStore((state) => state.addAnime);
+export default function Page({
+  subredd,
+  MainData,
+  after,
+  setAfter,
+  setData,
+}: Props) {
+  // const [MainData, setData] = useState<CardData[]>([]);
+
+  // const MainData = useAmineStore((state) => state.Anime);
+  // const setData = useAmineStore((state) => state.addAnime);
   const [loader, setLoader] = useState(true);
-  const after = useAmineStore((state) => state.After);
-  const setAfter = useAmineStore((state) => state.setAfter);
-  // const after = useRef("");
+  // const after = useAmineStore((state) => state.After);
+  // const setAfter = useAmineStore((state) => state.setAfter);
+  const first = useRef(1);
   const blurUrl =
     "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEASABIAAD/4QBCRXhpZgAATU0AKgAAAAgAAgESAAMAAAABAAEAAIdpAAQAAAABAAAAJgAAAAAAAaABAAMAAAAB//8AAAAAAAAAAP/bAEMAAwICAwICAwMDAwQDAwQFCAUFBAQFCgcHBggMCgwMCwoLCw0OEhANDhEOCwsQFhARExQVFRUMDxcYFhQYEhQVFP/bAEMBAwQEBQQFCQUFCRQNCw0UFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFP/AABEIAAYACgMBIgACEQEDEQH/xAAfAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgv/xAC1EAACAQMDAgQDBQUEBAAAAX0BAgMABBEFEiExQQYTUWEHInEUMoGRoQgjQrHBFVLR8CQzYnKCCQoWFxgZGiUmJygpKjQ1Njc4OTpDREVGR0hJSlNUVVZXWFlaY2RlZmdoaWpzdHV2d3h5eoOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4eLj5OXm5+jp6vHy8/T19vf4+fr/xAAfAQADAQEBAQEBAQEBAAAAAAAAAQIDBAUGBwgJCgv/xAC1EQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4+Tl5ufo6ery8/T19vf4+fr/2gAMAwEAAhEDEQA/AORt9U+EnjHT5NTHh/VbL7aiMcQQuYCHy4UeYN2cEZJ5B6CuQm/aL+FlnK9vF4X8RyRxMY1driJSwHAJG44P4miijD51mDi06r/D/I+3xeV4HC8lSjRinNXeievzvb5H/9k=";
   const [url, setUrl] = useState(
-    `https://www.reddit.com/r/${props.subredd}/hot.json?count=1000&raw_json=1`
+    `https://www.reddit.com/r/${subredd}/hot.json?count=1000&raw_json=1`
   );
 
   useEffect(() => {
@@ -58,19 +67,21 @@ export default function Page(props: Props) {
 
   //////////////////////////////////////////////////////////////////////////////////////
   useEffect(() => {
-    // after.current = "";
     let isMounted = true;
     if (isMounted) {
-      console.log(FirstLoad);
       console.log(url);
-      if (FirstLoad && Maindata.length === 0) {
+
+      if (first.current && MainData.length === 0) {
         console.log("first load");
         setLoader(true);
         fetchData();
-        setFirstLoad(false);
-        return;
-      }
-      if (!FirstLoad && after !== "") {
+        first.current = 0;
+      } else if (first.current && MainData.length !== 0) {
+        console.log("first load but not first time");
+        setLoader(false);
+        first.current = 0;
+      } else if (!first.current && MainData.length !== 0) {
+        console.log("after load");
         setLoader(true);
         fetchData();
       }
@@ -81,7 +92,7 @@ export default function Page(props: Props) {
   }, [url]);
 
   async function fetchData() {
-    if (Maindata.length === 0) setLoader(true);
+    if (MainData.length === 0) setLoader(true);
     let rawData = await fetch(url);
     let rawJSON = await rawData.json();
     handleData(rawJSON.data.children);
@@ -91,8 +102,9 @@ export default function Page(props: Props) {
   }
   let fetchMoreData = () => {
     setUrl(
-      `https://www.reddit.com/r/${props.subredd}/hot.json?count=1000&after=${after}&raw_json=1`
+      `https://www.reddit.com/r/${subredd}/hot.json?count=1000&after=${after}&raw_json=1`
     );
+    console.log("fetching more data");
   };
   let handleData = (arr: any) => {
     let data: CardData[] = [];
@@ -123,12 +135,12 @@ export default function Page(props: Props) {
       });
     if (data.length === 0) return;
 
-    // if (Maindata.length === 0) {
+    // if (MainData.length === 0) {
     setData(data);
-    console.log(Maindata);
+    console.log(MainData);
     // return;
     // }
-    // setData([...Maindata, ...data]);
+    // setData([...MainData, ...data]);
   };
   return (
     <>
@@ -141,13 +153,13 @@ export default function Page(props: Props) {
 
       {/* /////////////////////////////////////////// */}
       <InfiniteScroll
-        dataLength={Maindata.length}
+        dataLength={MainData.length}
         next={fetchMoreData}
         hasMore={true}
         loader={
           <h4
             className={`text-2xl text-white py-5 text-center ${
-              Maindata.length === 0 && " hidden "
+              MainData.length === 0 && " hidden "
             } `}
           >
             Loading...
@@ -157,7 +169,7 @@ export default function Page(props: Props) {
         <main
           className={` max-w-screen-2xl mx-auto md:px-1 pt-1 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3  gap-y-1 md:gap-x-2`}
         >
-          {Maindata.map((card, key) => {
+          {MainData.map((card, key) => {
             return (
               <WallCard
                 width={card.width}
