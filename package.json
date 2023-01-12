@@ -1,10 +1,9 @@
 {
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build --turbo ",
-    "export": "next export",
-    "start": "next start"
+    "dev": "next dev --turbo",
+    "build": "next build  ",
+    "start": "next start "
   },
   "dependencies": {
     "next": "latest",

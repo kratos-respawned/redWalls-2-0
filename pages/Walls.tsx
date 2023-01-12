@@ -7,6 +7,8 @@ const Walls = () => {
   const setMainData = useWallStore((state) => state.addData);
   const After = useWallStore((state) => state.After);
   const setAfter = useWallStore((state) => state.setAfter);
+  const newRequest = useWallStore((state) => state.newRequest);
+  const setNewRequest = useWallStore((state) => state.setNewRequest);
   return (
     <>
       <Head>
@@ -18,6 +20,8 @@ const Walls = () => {
         setAfter={setAfter}
         setData={setMainData}
         after={After}
+        newRequest={newRequest}
+        setNewRequest={setNewRequest}
       />
     </>
   );

@@ -4,6 +4,7 @@ import { CardData } from "../components/Page"
 const AnimeStore = (set: any) => ({
     Data: [] as CardData[],
     After: "" as string,
+    newRequest: true as boolean,
     addData: (anime: CardData[]) => set(
         (state: any) => ({
 
@@ -11,14 +12,18 @@ const AnimeStore = (set: any) => ({
         })
     ),
     setAfter: (after: string) => set(
-        (state: any) => ({
+        () => ({
             After: after
         })),
+    setNewRequest: (value: boolean) => set(
+        () => ({
+            newRequest: value
+        }))
 })
 const PhoneStore = (set: any) => ({
     Data: [] as CardData[],
     After: "" as string,
-
+    newRequest: true as boolean,
     addData: (data: CardData[]) => set(
         (state: any) => ({
 
@@ -26,15 +31,18 @@ const PhoneStore = (set: any) => ({
         })
     ),
     setAfter: (after: string) => set(
-        (state: any) => ({
+        () => ({
             After: after
         })),
-
+    setNewRequest: (value: boolean) => set(
+        () => ({
+            newRequest: value
+        }))
 })
 const WideStore = (set: any) => ({
     Data: [] as CardData[],
     After: "" as string,
-
+    newRequest: true as boolean,
     addData: (data: CardData[]) => set(
         (state: any) => ({
 
@@ -42,15 +50,18 @@ const WideStore = (set: any) => ({
         })
     ),
     setAfter: (after: string) => set(
-        (state: any) => ({
+        () => ({
             After: after
         })),
-
+    setNewRequest: (value: boolean) => set(
+        () => ({
+            newRequest: value
+        }))
 })
 const WallStore = (set: any) => ({
     Data: [] as CardData[],
     After: "" as string,
-
+    newRequest: true as boolean,
     addData: (data: CardData[]) => set(
         (state: any) => ({
 
@@ -58,10 +69,13 @@ const WallStore = (set: any) => ({
         })
     ),
     setAfter: (after: string) => set(
-        (state: any) => ({
+        () => ({
             After: after
         })),
-
+    setNewRequest: (value: boolean) => set(
+        () => ({
+            newRequest: value
+        }))
 })
 export const useAnimeStore = create(AnimeStore);
 export const usePhoneStore = create(PhoneStore);

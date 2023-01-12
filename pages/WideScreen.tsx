@@ -7,6 +7,8 @@ const WideScreen = () => {
   const setMainData = useWideStore((state) => state.addData);
   const After = useWideStore((state) => state.After);
   const setAfter = useWideStore((state) => state.setAfter);
+  const newRequest = useWideStore((state) => state.newRequest);
+  const setNewRequest = useWideStore((state) => state.setNewRequest);
   return (
     <>
       <Head>
@@ -18,6 +20,8 @@ const WideScreen = () => {
         setAfter={setAfter}
         setData={setMainData}
         after={After}
+        newRequest={newRequest}
+        setNewRequest={setNewRequest}
       />
     </>
   );

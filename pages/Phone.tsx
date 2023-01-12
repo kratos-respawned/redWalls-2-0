@@ -7,6 +7,8 @@ const Phone = () => {
   const setMainData = usePhoneStore((state) => state.addData);
   const After = usePhoneStore((state) => state.After);
   const setAfter = usePhoneStore((state) => state.setAfter);
+  const newRequest = usePhoneStore((state) => state.newRequest);
+  const setNewRequest = usePhoneStore((state) => state.setNewRequest);
   return (
     <>
       <Head>
@@ -18,6 +20,8 @@ const Phone = () => {
         setAfter={setAfter}
         setData={setMainData}
         after={After}
+        newRequest={newRequest}
+        setNewRequest={setNewRequest}
       />
     </>
   );

@@ -7,6 +7,8 @@ const Anime = () => {
   const setMainData = useAnimeStore((state) => state.addData);
   const After = useAnimeStore((state) => state.After);
   const setAfter = useAnimeStore((state) => state.setAfter);
+  const newRequest = useAnimeStore((state) => state.newRequest);
+  const setNewRequest = useAnimeStore((state) => state.setNewRequest);
   return (
     <>
       <Head>
@@ -18,6 +20,8 @@ const Anime = () => {
         setAfter={setAfter}
         setData={setMainData}
         after={After}
+        newRequest={newRequest}
+        setNewRequest={setNewRequest}
       />
     </>
   );
