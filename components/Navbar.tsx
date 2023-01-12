@@ -1,7 +1,6 @@
 import Link from "next/link";
 import React, { useState } from "react";
-import { GiHamburgerMenu } from "react-icons/gi";
-import { BiUpArrowAlt } from "react-icons/bi";
+import { HiMenuAlt2, HiArrowNarrowUp, HiOutlineX } from "react-icons/hi";
 import { useRouter } from "next/router";
 import HashLoader from "react-spinners/HashLoader";
 export default function Navbar() {
@@ -16,8 +15,8 @@ export default function Navbar() {
           <HashLoader color="#EF4444" size={96} />
         </div>
       ) : null}
-      <nav className="bg-[#121212] max-w-screen-2xl mx-auto py-3  px-4 relative text-slate-200 flex justify-between items-center z-10 isolate ">
-        <div className="md:flex-1 z-10">
+      <nav className="bg-[#121212] max-w-screen-2xl mx-auto relative text-slate-200 flex justify-between items-center z-10 isolate ">
+        <div className={`bg-[#121212] flex-1 md:flex-1 z-10 p-4`}>
           <Link href="/">
             <img
               src="https://see.fontimg.com/api/renderfont4/VMGx/eyJyIjoiZnMiLCJoIjo2OCwidyI6MTI1MCwiZnMiOjU0LCJmZ2MiOiIjMDAwMDAwIiwiYmdjIjoiI0ZGRkZGRiIsInQiOjF9/UmVkd2FsbHM/gbshinto-regular.png"
@@ -75,17 +74,21 @@ export default function Navbar() {
                 setMenu(false);
               }}
             >
-              <BiUpArrowAlt />
+              <HiArrowNarrowUp />
             </button>
           </li>
         </ul>
         <button
-          className="md:hidden"
+          className="pr-4 md:hidden"
           onClick={() => {
             setMenu((menu) => !menu);
           }}
         >
-          <GiHamburgerMenu className="text-2xl" />
+          {menu ? (
+            <HiOutlineX className="text-2xl" />
+          ) : (
+            <HiMenuAlt2 className="text-2xl" />
+          )}
         </button>
       </nav>
     </>

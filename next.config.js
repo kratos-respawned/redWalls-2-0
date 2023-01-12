@@ -1,7 +1,12 @@
 /** @type {import('next').NextConfig} */
 module.exports = {
-  reactStrictMode: false,
+  reactStrictMode: true,
   swcMinify: true,
+  // modularizeImports: {
+  //   "react-icons/hi": {
+  //     transform: "react-icons/hi/{{member}}",
+  //   },
+  // },
   images: {
     minimumCacheTTL: 60 * 60 * 24 * 7,
     domains: [
