@@ -66,33 +66,18 @@ export default function Page({
   useEffect(() => {
     let isMounted = true;
     if (isMounted) {
-      // if (first.current && MainData.length === 0) {
-      //   setLoader(true);
-      //   fetchData();
-      //   first.current = 0;
-      // } else if (first.current && MainData.length !== 0) {
-      //   setLoader(false);
-      //   first.current = 0;
-      // } else if (!first.current && MainData.length !== 0) {
-      //   setLoader(true);
-      //   fetchData();
-      // }
       if (MainData.length === 0) {
         setLoader(true);
-        console.log(newRequest);
         setNewRequest(false);
         if (firstReq.current) {
           fetchData();
-          console.log("first request");
         }
       } else if (MainData.length !== 0 && newRequest) {
         setLoader(true);
         fetchData();
         setNewRequest(false);
-        console.log("scroll req");
       } else if (MainData.length !== 0 && !newRequest) {
         setLoader(false);
-        console.log("page shift no req");
       }
     }
     return () => {
