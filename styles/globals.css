@@ -8,13 +8,10 @@ body{
     background: #000;
 }
 /* ===== Scrollbar CSS ===== */
-  /* Firefox */
   * {
     scrollbar-width: auto;
     scrollbar-color: #b80000 #000000;
   }
-
-  /* Chrome, Edge, and Safari */
   *::-webkit-scrollbar {
     width: 8px;
   }
