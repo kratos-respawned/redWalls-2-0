@@ -15,7 +15,7 @@ export default function Navbar() {
           <HashLoader color="#EF4444" size={96} />
         </div>
       ) : null}
-      <nav className="bg-[#121212] max-w-screen-2xl mx-auto relative text-slate-200 flex justify-between items-center z-10 isolate ">
+      <nav className="bg-[#121212] w-full max-w-screen-2xl mx-auto relative text-slate-200 flex justify-between items-center z-10 isolate ">
         <div className={`bg-[#121212] flex-1 md:flex-1 z-10 p-4`}>
           <Link href="/">
             <img
@@ -26,11 +26,10 @@ export default function Navbar() {
           </Link>
         </div>
         <ul
-          className={`flex flex-col font-mono border-0 md:w-max md:flex-row md:opacity-100 md:pointer-events-auto items-center bg-[#131313] w-full md:static text-white absolute bottom-0 left-0 ${
-            menu
-              ? " translate-y-full md:translate-y-0 opacity-100 -z-10 md:z-0 border-t-[0.1px] md:border-none border-t-[#8a8a8a0e] "
-              : "  pointer-events-none opacity-0 md:pointer-events-auto md:opacity-100  "
-          }   duration-300 enter  transform-gpu`}
+          className={`flex flex-col font-mono border-0 md:w-max md:flex-row md:opacity-100 md:pointer-events-auto items-center bg-[#131313] w-full md:static text-white absolute bottom-0 left-0 ${menu
+            ? " translate-y-full md:translate-y-0 opacity-100 -z-10 md:z-0 border-t-[0.1px] md:border-none border-t-[#8a8a8a0e] "
+            : "  pointer-events-none opacity-0 md:pointer-events-auto md:opacity-100  "
+            }   duration-300 enter  transform-gpu`}
         >
           <NavLink
             name="Home"

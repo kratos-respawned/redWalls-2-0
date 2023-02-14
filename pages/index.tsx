@@ -8,13 +8,13 @@ import wallpapers from "../components/images/wallpapers.webp";
 import widescreen from "../components/images/widescreen.webp";
 const Home: NextPage = () => {
   return (
-    <div className="h-full bg-black ">
+    <div className="h-full bg-black home">
       <Head>
         <title>RedWalls</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Navbar />
-      <main className="bg-black max-w-screen-2xl mx-auto min-h-full lg:px-2 h-[calc(100vh-48px)] text-white grid grid-cols-1 lg:grid-cols-2 lg:gap-2">
+      <main className="bg-black max-w-screen-2xl mx-auto  lg:px-2 w-full text-white grid grid-cols-1 lg:grid-cols-2 lg:gap-2">
         <HomeCard img={anime} text="Anime" route="/Anime" key={1} />
         <HomeCard img={phone} text="Phone" route="/Phone" key={2} />
         <HomeCard img={wallpapers} text="Wallpapers" route="/Walls" key={3} />
