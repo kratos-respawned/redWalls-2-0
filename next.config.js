@@ -2,11 +2,6 @@
 module.exports = {
   reactStrictMode: true,
   swcMinify: true,
-  // modularizeImports: {
-  //   "react-icons/hi": {
-  //     transform: "react-icons/hi/{{member}}",
-  //   },
-  // },
   images: {
     minimumCacheTTL: 60 * 60 * 24 * 7,
     domains: [
@@ -15,9 +10,6 @@ module.exports = {
       "images.pexels.com",
       "external-preview.redd.it",
     ],
-    // unoptimized: true,
-    // path: "/redWalls-2_0",
+    unoptimized: true,
   },
-  // basePath: "/redWalls-2_0",
-  // assetPrefix: "/redWalls-2_0",
 };

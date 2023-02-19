@@ -3,7 +3,9 @@
   "scripts": {
     "dev": "next dev --turbo",
     "build": "next build  ",
-    "start": "next start "
+    "start": "next start ",
+    "export": "next export",
+    "serve": "serve out"
   },
   "dependencies": {
     "next": "^13.1.6",
