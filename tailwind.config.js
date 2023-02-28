@@ -11,6 +11,9 @@ module.exports = {
         rwBlack: "#140f1b",
         rwRed: "#ef4444",
       },
+      fontFamily: {
+        montserrat: ["var(--font-montserrat)", "sans-serif"],
+      },
     },
   },
   plugins: [],

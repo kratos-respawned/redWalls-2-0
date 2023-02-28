@@ -26,7 +26,7 @@ export default function Navbar() {
           </Link>
         </div>
         <ul
-          className={`flex flex-col font-mono border-0 md:w-max md:flex-row md:opacity-100 md:pointer-events-auto items-center bg-[#131313] w-full md:static text-white absolute bottom-0 left-0 ${menu
+          className={`flex flex-col border-0 md:w-max md:flex-row md:opacity-100 md:pointer-events-auto items-center bg-[#131313] w-full md:static text-white absolute bottom-0 left-0 ${menu
             ? " translate-y-full md:translate-y-0 opacity-100 -z-10 md:z-0 border-t-[0.1px] md:border-none border-t-[#8a8a8a0e] "
             : "  pointer-events-none opacity-0 md:pointer-events-auto md:opacity-100  "
             }   duration-300 enter  transform-gpu`}
