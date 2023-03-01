@@ -6,15 +6,10 @@ import anime from "../components/images/anime.webp";
 import phone from "../components/images/phone.webp";
 import wallpapers from "../components/images/wallpapers.webp";
 import widescreen from "../components/images/widescreen.webp";
-import { Montserrat } from "next/font/google"
-const montserrat = Montserrat({
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-montserrat",
-  subsets: ["latin"]
-})
+
 const Home: NextPage = () => {
   return (
-    <div className={`${montserrat.variable} font-montserrat h-full bg-black home`}>
+    <div className={` h-full bg-black home`}>
       <Head>
         <title>RedWalls</title>
         <link rel="icon" href="/favicon.ico" />

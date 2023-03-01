@@ -5,7 +5,7 @@ export default function WallCard(props: CardData) {
   return (
     <>
       <a target="_blank" href={props.url} download>
-        <div className="flex group font-mono relative w-full h-[300px] overflow-hidden">
+        <div className="flex group  relative w-full h-[300px] overflow-hidden">
           <Image
             alt={props.title}
             src={props.img}
