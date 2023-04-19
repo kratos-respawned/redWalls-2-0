@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { CardData } from "../components/Page";
+import type { CardData } from "../typings/CardData";
 
 const AnimeStore = (set: any) => ({
   Data: [] as CardData[],

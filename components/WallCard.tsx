@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { HiOutlineUserCircle } from "react-icons/hi";
-import { CardData } from "./Page";
+import type { CardData } from "../typings/CardData";
+
 export default function WallCard(props: CardData) {
   return (
     <>
