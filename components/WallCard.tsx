@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { HiOutlineUserCircle } from "react-icons/hi";
-import { CardData } from "./Page";
+import type { CardData } from "../typings/CardData";
 export default function WallCard(props: CardData) {
   return (
     <>
@@ -13,8 +13,7 @@ export default function WallCard(props: CardData) {
             blurDataURL={props.blurUrl}
             fill={true}
             sizes={`${props.width}`}
-            unoptimized={props.width > props.height ? false : true}
-            className=" object-contain  md:group-hover:scale-110 transition-transform transform-gpu duration-500 ease-in-out"
+            className=" object-contain  md:group-hover:scale-105 transition-transform transform-gpu duration-150 ease-in-out"
           />
           <div className="absolute flex pr-3 rounded-t-xl pt-2 pb-2 items-center bottom-0 w-full text-[#dadada] z-30  bg-gradient-to-b from-[#1e1e1e30] to-[#000000a4] h-fit">
             <div className="flex-1 pl-2">
